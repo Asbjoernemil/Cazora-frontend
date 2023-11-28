@@ -23,8 +23,9 @@ export default function Products() {
         <ul>
             {products.map(product => (
                 <li key={product.id}>
-                    {product.name} - {product.price} DKK
-                    <img src={product.img} alt="" />
+                    <img src={product.img} alt={product.description} className="photo_productPhoto" />
+                    <br />
+                    {product.name} - {product.price} DKK 
                 </li>
 
             ))}
