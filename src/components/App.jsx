@@ -1,4 +1,5 @@
 import Products from "./Products";
+import SoMe from "./SoMe";
 
 // App.jsx
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
             <ul>
                 <Products />
             </ul>
+            <SoMe />
         </div>
     );
 }
