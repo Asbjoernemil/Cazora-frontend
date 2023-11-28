@@ -1,5 +1,5 @@
 // api.js
-const BASE_URL = 'http://localhost:3000'; // Dette skal være din backend URL
+const BASE_URL = 'http://localhost:3000'; // vores backend URL
 
 export const getCategories = async () => {
     const response = await fetch(`${BASE_URL}/categories`);
