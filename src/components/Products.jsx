@@ -1,5 +1,5 @@
-import { getProducts } from './api.js';
 import React, { useEffect, useState } from 'react';
+import { getProducts } from '../api';
 
 
 export default function Products() {
@@ -20,10 +20,10 @@ export default function Products() {
 
     return (
         <div>
-        <ul>
+        <ul className='list_productList'>
             {products.map(product => (
-                <li key={product.id}>
-                    <img src={product.img} alt={product.description} className="photo_productPhoto" />
+                <li className='listItem_clothes' key={product.id}>
+                    <img src={product.img} title={product.description} alt={product.name} className="photo_productPhoto" />
                     <br />
                     {product.name} - {product.price} DKK 
                 </li>

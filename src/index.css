@@ -75,8 +75,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
+/* ziggys tilføjede css til billedstørrelse */
 .photo_productPhoto{
 width: 10em;
+margin-top: 10%;
+}
 
+.list_productList{
+  list-style: none;
+}
+
+.listItem_clothes{
+  margin: 3%;
 }
