@@ -20,10 +20,10 @@ export default function Products() {
 
     return (
         <div>
-        <ul className='list_productList'>
+        <ul className='grid grid-cols-3 gap-10 flex justify-center'>
             {products.map(product => (
-                <li className='listItem_clothes' key={product.id}>
-                    <img src={product.img} title={product.description} alt={product.name} className="photo_productPhoto" />
+                <li className='bg-pink-300' key={product.id}>
+                    <img src={product.img} title={product.description} alt={product.name} className="object-scale-down h-60 w-96 bg-purple-300" />
                     <br />
                     {product.name} - {product.price} DKK 
                 </li>
