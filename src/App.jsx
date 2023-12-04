@@ -6,9 +6,7 @@ import Header from "./components/Header";
 export default function App() {
 
     return (
-        <div>
-            <h1>Genbrugstøjbutik</h1>
-           
+        <div className="font-helvetica">
                 <BrowserRouter>
                     <Header/>
                     <SoMe />
