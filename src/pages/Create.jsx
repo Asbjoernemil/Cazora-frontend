@@ -8,7 +8,7 @@ export default function Create(){
         size: '',
         price: '',
         description: '',
-        reserved: 'false',
+        reserved: 0,
         img: ''
        
     })
