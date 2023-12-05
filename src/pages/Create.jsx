@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { BASE_URL } from "../api.js"
+import { useNavigate } from 'react-router-dom';
 
 export default function Create(){
     const [values, setValues] = useState({
@@ -12,6 +13,8 @@ export default function Create(){
         img: ''
        
     })
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values);
@@ -22,7 +25,10 @@ export default function Create(){
             },
             body: JSON.stringify(values)
         })
-        .then(response => console.log(response) )
+        .then(response => {
+            console.log(response);
+            navigate('/admin')
+         })
         .catch(error => console.log(error)
         );
     }
