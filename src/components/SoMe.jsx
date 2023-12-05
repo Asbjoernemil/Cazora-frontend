@@ -2,10 +2,10 @@
 
 export default function SoMe () {
     return (
-        <footer className="flex p-3 justify-end">
-			<h6>See more at our instagram page:</h6>
+        <footer className="flex m-2 p-3 gap-2 justify-end">
+			<h6>See more at our instagram page</h6>
 				<a href="https://www.instagram.com/cazora_vintage/">
-							<img src= "../../cazora C.png" className="w-1/5">
+							<img src= "../../Instagram_Glyph_Gradient.png" className="w-8">
 							</img>
 				</a>
             </footer>

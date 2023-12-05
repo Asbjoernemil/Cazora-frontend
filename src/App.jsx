@@ -11,6 +11,7 @@ export default function App() {
                     <Header/>
                     <SoMe />
                 </BrowserRouter>
+                    
             
         </div>
     );

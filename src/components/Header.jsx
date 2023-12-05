@@ -5,15 +5,15 @@ import Gallery from "../pages/Gallery";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 import About from "../pages/About";
-import MainPage from "../pages/MainPage";
 import Create from "../pages/Create";
+import Home from "../pages/Home";
 
 export default function Header() {
     return(
         <div className="d-flex justify-content-end">
              <Nav />
             <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
