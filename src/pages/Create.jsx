@@ -35,7 +35,7 @@ export default function Create(){
    return(
     <div>
         <div>
-            <form className="bg-rose-200" onSubmit={handleSubmit}>
+            <form className="bg-cazora" onSubmit={handleSubmit}>
                 <h2>Tilføj tøj</h2>
                 <div >
                     <label htmlFor="">Titel</label>

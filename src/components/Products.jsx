@@ -21,16 +21,16 @@ export default function Products() {
 
     return (
         <div>
-        <ul className='grid grid-cols-3 gap-10 flex justify-center'>
+        <ul className='grid grid-cols-3 gap-10 flex justify-center text-center'>
             {products.map(product => (
-                <li className='bg-pink-300' key={product.id}>
-                    <img src={product.img} title={product.description} alt={product.name} className="object-scale-down h-60 w-96 bg-purple-300" />
+                <li className='bg-rose-200 rounded-md' key={product.id}>
+                    <img src={product.img} title={product.description} alt={product.name} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md" />
                     <br />
                     {product.name} - {product.price} DKK
                     <br /> 
-                    <td className='m-3 p-2'>
-                    <Link to="/update" className='object-contain m-3 p-2 rounded-md font-color-red bg-sky-500 text-purple-300 hover:bg-sky-700'>Ret til</Link>
-                    <Link to="/delete" className='object-contain m-3 p-2 rounded-md font-color-red bg-blue-500 text-purple-300 hover:bg-blue-700'>Slet</Link>
+                    <td className='m-3 p-2 flex justify-center'>
+                    <Link to={`/update/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent hover:shadow'>Redigér</Link>
+                    <Link to={`/delete/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent'>Slet</Link>
                     </td>
                 </li>
 

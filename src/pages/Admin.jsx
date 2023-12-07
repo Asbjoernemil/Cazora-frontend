@@ -2,9 +2,10 @@ import Products from "../components/Products";
 
 export default function Admin(){
     return(
-    <div>
+        <div>
         Adminside motherfucker
         <Products />
-    </div>
+
+        </div>
     )
 }

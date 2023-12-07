@@ -2,7 +2,12 @@
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+   
+    extend: {
+       colors: {
+      'cazora': '#0000FF',
+    },
+    },
   },
   plugins: [],
 }

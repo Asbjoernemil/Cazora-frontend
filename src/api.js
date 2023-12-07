@@ -19,3 +19,13 @@ export const getProducts = async () => {
     }
 };
 
+export const getOneParticularProduct = async (id) => {
+    try {
+        const response = await fetch(`${BASE_URL}/products/${id}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Fejl ved indlæsning af produkter: ', error);
+        throw error;
+    }
+};
