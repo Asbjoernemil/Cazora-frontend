@@ -52,3 +52,26 @@ export const updateProduct = async (id, updatedProduct) => {
         throw error;
     }
 };
+
+// api/products.js
+
+export const deleteProduct = async (id) => {
+    try {
+        const response = await fetch(`${BASE_URL}/products/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            return data; // Returnerer data efter sletning
+        } else {
+            throw new Error('Fejl ved sletning af produkt.');
+        }
+    } catch (error) {
+        console.error('Noget gik galt. Prøv igen', error);
+        throw error;
+    }
+};
