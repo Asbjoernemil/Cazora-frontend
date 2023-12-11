@@ -40,7 +40,6 @@ export default function Product() {
             setProductData(editedProduct);
         } catch (error) {
             console.log(error);
-            console.log();
         }
     };
 

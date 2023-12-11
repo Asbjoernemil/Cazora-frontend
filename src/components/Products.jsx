@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts } from '../api';
+import { getProducts, getProductsInCategory } from '../api';
 import { Link } from 'react-router-dom';
-
+import Filter from './Filter';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
+    const [selectedCategory] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const productsData = await getProducts();
+                let productsData;
+
+                if (selectedCategory) {
+                    // Fetch products from category
+                    productsData = await getProductsInCategory(selectedCategory);
+                } else {
+                    // no cat --> fetch all
+                    productsData = await getProducts();
+                }
+
                 setProducts(productsData);
             } catch (error) {
                 console.error('Fejl ved indlæsning af produkter: ', error);
@@ -17,10 +27,18 @@ export default function Products() {
         };
 
         fetchData();
-    }, []);
+    }, [selectedCategory]);
+
+    const handleCategoryChange = (productsData) => {
+        setProducts(productsData);
+    };
 
     return (
         <div>
+            <div className="flex justify-end text-cazora p-1 w-full">
+                <Filter onCategoryChange={handleCategoryChange} />
+            </div>
+
             <ul className='grid grid-cols-3 gap-10 flex justify-center text-center'>
                 {products.map(product => (
                     <li className='bg-rose-200 rounded-md' key={product.id}>
@@ -33,9 +51,8 @@ export default function Products() {
                             <Link to={`/delete/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent'>Slet</Link>
                         </div>
                     </li>
-
                 ))}
             </ul>
         </div>
-    )
+    );
 }

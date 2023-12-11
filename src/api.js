@@ -75,3 +75,14 @@ export const deleteProduct = async (id) => {
         throw error;
     }
 };
+
+export const getProductsInCategory = async (categoryId) => {
+    try {
+        const response = await fetch(`${BASE_URL}/productCategories/products-in-category/${categoryId}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Fejl ved indlæsning af produkter i kategori: ', error);
+        throw error;
+    }
+};
