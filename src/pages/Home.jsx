@@ -4,7 +4,7 @@ import Logo from "../components/visuals/Logo";
 
 export default function Home(){
     return(
-        <div>
+        <div className="grid grid-cols-1 justify-items-center">
             <div className="w-1/4">
             <AngelWings />
             </div>
