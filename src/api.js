@@ -48,7 +48,7 @@ export const updateProduct = async (id, updatedProduct) => {
             throw new Error('Fejl ved opdatering af produkt.');
         }
     } catch (error) {
-        console.error('Fejl ved opdatering af produkt: ', error);
+        console.log("Noget gik galt. Prøv igen");
         throw error;
     }
 };
