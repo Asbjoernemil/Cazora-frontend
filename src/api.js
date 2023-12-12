@@ -1,8 +1,8 @@
 // api.js
-export const BASE_URL = 'http://localhost:3000'; // vores backend URL
+export const api = 'http://localhost:3000'; // vores backend URL
 
 export const getCategories = async () => {
-    const response = await fetch(`${BASE_URL}/categories`);
+    const response = await fetch(`${api}/categories`);
     const data = await response.json();
     return data;
 };
@@ -10,7 +10,7 @@ export const getCategories = async () => {
 // api/products.js
 export const getProducts = async () => {
     try {
-        const response = await fetch(`${BASE_URL}/products`);
+        const response = await fetch(`${api}/products`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -21,7 +21,7 @@ export const getProducts = async () => {
 
 export const getOneParticularProduct = async (id) => {
     try {
-        const response = await fetch(`${BASE_URL}/products/${id}`);
+        const response = await fetch(`${api}/products/${id}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -33,7 +33,7 @@ export const getOneParticularProduct = async (id) => {
 // 
 export const updateProduct = async (id, updatedProduct) => {
     try {
-        const response = await fetch(`${BASE_URL}/products/${id}`, {
+        const response = await fetch(`${api}/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const updateProduct = async (id, updatedProduct) => {
 
 export const deleteProduct = async (id) => {
     try {
-        const response = await fetch(`${BASE_URL}/products/${id}`, {
+        const response = await fetch(`${api}/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export const deleteProduct = async (id) => {
 
 export const getProductsInCategory = async (categoryId) => {
     try {
-        const response = await fetch(`${BASE_URL}/productCategories/products-in-category/${categoryId}`);
+        const response = await fetch(`${api}/productCategories/products-in-category/${categoryId}`);
         const data = await response.json();
         return data;
     } catch (error) {

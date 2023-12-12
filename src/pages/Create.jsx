@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { BASE_URL } from "../api.js"
 import { useNavigate } from 'react-router-dom';
+import { api } from "../api";
 
 export default function Create(){
     const [values, setValues] = useState({
@@ -18,7 +18,7 @@ export default function Create(){
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values);
-        fetch(`${BASE_URL}/products`, {
+        fetch(`${api}/products`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
