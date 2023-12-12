@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { deleteProduct, getOneParticularProduct } from '../api';
 
-export default function DeleteProduct() {
+export default function DeleteProduct({ onCategoryChange }) {
     const { id } = useParams();
     const [productData, setProductData] = useState(null);
     const navigate = useNavigate();
@@ -12,6 +12,7 @@ export default function DeleteProduct() {
             try {
                 const product = await getOneParticularProduct(id);
                 setProductData(product);
+                console.log('Fetched product data in DeleteProduct.jsx:', product);
             } catch (error) {
                 console.error('Fejl ved indlæsning af produkt: ', error);
             }
@@ -22,12 +23,14 @@ export default function DeleteProduct() {
 
     const handleDelete = async () => {
         try {
+            console.log('Trying to delete product with ID:', id);
             // Perform API call to delete the product
             await deleteProduct(id);
-            console.log('Produkt slettet med succes');
+            console.log('Product successfully deleted');
 
-            // Optionally, you can redirect the user to another page after deletion
+            // redirect user 
             navigate('/admin');
+            onCategoryChange([]);
         } catch (error) {
             console.log(error);
         }

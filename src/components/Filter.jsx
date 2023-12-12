@@ -20,16 +20,18 @@ export default function Filter({ onCategoryChange }) {
 
     const handleCategoryChange = async (categoryId) => {
         try {
+            console.log("Selected category in Filter.jsx:", categoryId);
             setSelectedCategory(categoryId);
 
-            if (categoryId) {
+            if (categoryId !== '') {
                 // Hvis en kategori er valgt, filtrer produkterne baseret på kategorien
                 const productsData = await getProductsInCategory(categoryId);
                 onCategoryChange(productsData);
-                console.log("4", productsData);
+                console.log("Fetched products in category in Filter.jsx:", productsData);
             } else {
                 const allProductsData = await getProducts();
                 onCategoryChange(allProductsData);
+                console.log("Fetched all products in Filter.jsx:", allProductsData);
             }
         } catch (error) {
             console.error('Fejl ved filtrering af produkter: ', error);

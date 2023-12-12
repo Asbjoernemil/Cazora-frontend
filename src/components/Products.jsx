@@ -5,22 +5,23 @@ import Filter from './Filter';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
-    const [selectedCategory] = useState(null);
+    const [selectedCategory] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 let productsData;
-                console.log("1", productsData);
 
-                if (selectedCategory != null) {
+                console.log("Selected Category in Products.jsx:", selectedCategory);
+                if (selectedCategory !== '') {
                     // Fetch products from category
                     productsData = await getProductsInCategory(selectedCategory);
-                    console.log("2", productsData);
+                    console.log("Fetched products in category in Products.jsx:", productsData);
                 } else {
                     // no cat --> fetch all
                     productsData = await getProducts();
-                    console.log("3", productsData);
+                    console.log("Fetched all products in Products.jsx:", productsData);
+
                 }
 
                 setProducts(productsData);
