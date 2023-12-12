@@ -26,6 +26,7 @@ export default function Filter({ onCategoryChange }) {
                 // Hvis en kategori er valgt, filtrer produkterne baseret på kategorien
                 const productsData = await getProductsInCategory(categoryId);
                 onCategoryChange(productsData);
+                console.log("4", productsData);
             } else {
                 const allProductsData = await getProducts();
                 onCategoryChange(allProductsData);

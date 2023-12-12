@@ -11,13 +11,16 @@ export default function Products() {
         const fetchData = async () => {
             try {
                 let productsData;
+                console.log("1", productsData);
 
-                if (selectedCategory) {
+                if (selectedCategory != null) {
                     // Fetch products from category
                     productsData = await getProductsInCategory(selectedCategory);
+                    console.log("2", productsData);
                 } else {
                     // no cat --> fetch all
                     productsData = await getProducts();
+                    console.log("3", productsData);
                 }
 
                 setProducts(productsData);
