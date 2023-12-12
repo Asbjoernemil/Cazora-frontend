@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../api';
 import { Link } from 'react-router-dom';
+import AdminButtons from './AdminButtons';
 
 
 export default function Products() {
@@ -27,11 +28,10 @@ export default function Products() {
                     <img src={product.img} title={product.description} alt={product.name} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md" />
                     <br />
                     {product.name} - {product.price} DKK
-                    <br /> 
-                    <td className='m-3 p-2 flex justify-center'>
-                    <Link to={`/update/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent hover:shadow'>Redigér</Link>
-                    <Link to={`/delete/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent'>Slet</Link>
-                    </td>
+                    <br />
+                    <div className='m-3 p-2 flex justify-center'>
+                    <AdminButtons {...product} />
+                    </div>
                 </li>
 
             ))}

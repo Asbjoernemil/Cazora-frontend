@@ -1,7 +1,7 @@
 
 export default function Contact (){
     return (
-        <div className="p-15 w-full m-15 text-center text-cazora">
+        <div className="p-15 m-15 text-center text-cazora">
             <div>
             Birkegade 6 <br />
             2200 København N <br />

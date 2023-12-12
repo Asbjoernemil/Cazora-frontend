@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { getOneParticularProduct, updateProduct } from "../api";
 
 export default function Product() {
     const { id } = useParams();
-    const [productData, setProductData] = useState(null);
     const [editedProduct, setEditedProduct] = useState(null);
 
     useEffect(() => {
         const fetchProductData = async () => {
             try {
                 const product = await getOneParticularProduct(id);
-                setProductData(product);
-                setEditedProduct({ ...product[0] }); // Copy of product data for editing
+                setEditedProduct({ ...product[0] });
             } catch (error) {
                 console.error('Fejl ved indlæsning af produkt: ', error);
             }
@@ -31,13 +29,10 @@ export default function Product() {
 
     const handleSubmit = async () => {
         try {
-            // Perform API call to update the product
-            // Use editedProduct state to send updated data
+            // API call to update product
             const response = await updateProduct(id, editedProduct);
             console.log('Opdateret produkt:', response);
 
-            // Reset the state after updating
-            setProductData(editedProduct);
         } catch (error) {
             console.log(error);
             console.log();

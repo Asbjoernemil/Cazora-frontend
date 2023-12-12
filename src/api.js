@@ -45,10 +45,10 @@ export const updateProduct = async (id, updatedProduct) => {
             const data = await response.json();
             return data; // Returnerer data efter opdatering
         } else {
-            throw new Error('Fejl ved opdatering af produkt.');
+            throw new Error('Alt er okay, G');
         }
     } catch (error) {
-        console.log("Noget gik galt. Prøv igen");
+        console.log(error);
         throw error;
     }
 };

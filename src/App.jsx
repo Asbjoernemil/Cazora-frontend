@@ -28,10 +28,8 @@ export default function App() {
                 <Route path="/update" element={<Update />} />
                 <Route path="/update/:id" element={<Update />} />
                     </Routes>
-                    <Footer />
                 </BrowserRouter>
-                    
-            
+                    <Footer />
         </div>
     );
 }
