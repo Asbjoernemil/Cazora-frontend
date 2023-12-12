@@ -20,7 +20,7 @@ export default function Filter({ onCategoryChange }) {
 
     const handleCategoryChange = async (categoryId) => {
         try {
-            console.log("Selected category in Filter.jsx:", categoryId);
+
             setSelectedCategory(categoryId);
 
             if (categoryId !== '') {

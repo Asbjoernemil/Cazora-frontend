@@ -12,15 +12,14 @@ export default function Products() {
             try {
                 let productsData;
 
-                console.log("Selected Category in Products.jsx:", selectedCategory);
                 if (selectedCategory !== '') {
                     // Fetch products from category
                     productsData = await getProductsInCategory(selectedCategory);
-                    console.log("Fetched products in category in Products.jsx:", productsData);
+
                 } else {
                     // no cat --> fetch all
                     productsData = await getProducts();
-                    console.log("Fetched all products in Products.jsx:", productsData);
+
 
                 }
 
