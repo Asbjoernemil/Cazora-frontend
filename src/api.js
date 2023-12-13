@@ -86,3 +86,25 @@ export const getProductsInCategory = async (categoryId) => {
         throw error;
     }
 };
+
+export const createProduct = async (productData) => {
+    try {
+        const response = await fetch(`${BASE_URL}/products`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(productData),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            return data; // Returnerer data efter oprettelse
+        } else {
+            throw new Error('Fejl ved oprettelse af produkt.');
+        }
+    } catch (error) {
+        console.error('Noget gik galt. Prøv igen', error);
+        throw error;
+    }
+};
