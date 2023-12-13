@@ -1,11 +1,11 @@
 
-export default function Contact (){
+export default function Contact() {
     return (
         <div className="p-15 w-full m-15 text-center text-cazora">
             <div>
-            Birkegade 6 <br />
-            2200 København N <br />
-            <br /> <br />
+                Birkegade 6 <br />
+                2200 København N <br />
+                <br /> <br />
 
             </div>
 
@@ -18,14 +18,14 @@ export default function Contact (){
             Søndag - mandag Lukket
             <br /><br /><br />
             <div className="italic">
-            Opening hours
-            <br />
-            Tuesday - Saturday 12:00-17:00
-            <br />
-            Sunday - Monday Closed
+                Opening hours
+                <br />
+                Tuesday - Saturday 12:00-17:00
+                <br />
+                Sunday - Monday Closed
             </div>
-            <br /><br />    
-            fb
+            <br /><br />
+
 
         </div>
     )

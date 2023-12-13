@@ -39,9 +39,14 @@ export default function Filter({ onCategoryChange }) {
     };
 
     return (
-        <div>
-            <label htmlFor="category">Vælg kategori:</label>
-            <select id="category" value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+        <div className="flex items-center space-x-4">
+            <label htmlFor="category" className="text-lg font-semibold">Vælg kategori:</label>
+            <select
+                id="category"
+                value={selectedCategory}
+                onChange={(e) => handleCategoryChange(e.target.value)}
+                className="border p-2 rounded-md focus:outline-none focus:ring focus:border-teal-300"
+            >
                 <option value="">Alle kategorier</option>
                 {categories.map((category) => (
                     <option key={category.id} value={category.id}>
