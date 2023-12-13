@@ -119,12 +119,26 @@ export const createReservation = async (reservationData) => {
             body: JSON.stringify(reservationData),
         });
 
-        if (!response.ok) {
-            throw new Error('Fejl ved oprettelse af reservation.');
+        if (response.ok) {
+            const result = await response.json();
+            return result
         }
+        throw new Error('Fejl ved oprettelse af reservation.');
 
-        const result = await response.json();
-        return result;
+    } catch (error) {
+        console.error('Fejl ved API-opkald: ', error);
+        throw error;
+    }
+};
+
+export const getReservations = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/reservations`);
+        if (response.ok) {
+            const result = await response.json();
+            return result;
+        }
+        throw new Error('Fejl ved hentning af reservationer.');
     } catch (error) {
         console.error('Fejl ved API-opkald: ', error);
         throw error;

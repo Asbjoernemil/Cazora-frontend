@@ -1,8 +1,9 @@
-// Reservation.js
+// Reservation.jsx
 import { createReservation } from '../api';
 
 export const reserveProduct = async (productId, fittingRoom, contactInfo, pickUpTime) => {
     try {
+
         const reservationData = {
             productId,
             fittingRoom,

@@ -32,6 +32,7 @@ export default function ProductModal({ isOpen, onClose, productId }) {
     }, [isOpen, productId]);
 
     const handleReserveClick = async () => {
+
         try {
             await reserveProduct(productId, fittingRoom, contactInfo, pickUpTime);
             setReservationSuccess(true);
@@ -59,7 +60,20 @@ export default function ProductModal({ isOpen, onClose, productId }) {
                 {/* Reservér knap og formular */}
                 {!reservationSuccess && (
                     <div className="mt-4">
-                        <input type="text" placeholder="Fitting Room" value={fittingRoom} onChange={(e) => setFittingRoom(e.target.value)} className="mb-2 p-2 w-full rounded-md" />
+                        <div className="mb-2 p-2 w-full">
+                            <label className="block text-sm font-medium text-gray-700">Fitting Room</label>
+                            <select
+                                value={fittingRoom}
+                                onChange={(e) => setFittingRoom(e.target.value)}
+                                className="mt-1 p-2 w-full rounded-md"
+                            >
+                                <option value="1">Fitting Room 1</option>
+                                <option value="2">Fitting Room 2</option>
+                                <option value="3">Fitting Room 3</option>
+                                <option value="4">Fitting Room 4</option>
+                                <option value="5">Fitting Room 5</option>
+                            </select>
+                        </div>
                         <input type="text" placeholder="Contact Info" value={contactInfo} onChange={(e) => setContactInfo(e.target.value)} className="mb-2 p-2 w-full rounded-md" />
                         <input type="datetime-local" placeholder="Pickup Time" value={pickUpTime} onChange={(e) => setPickUpTime(e.target.value)} className="mb-4 p-2 w-full rounded-md" />
                         <button onClick={handleReserveClick} className="bg-cazora text-white py-2 px-4 rounded-md hover:bg-opacity-80">
