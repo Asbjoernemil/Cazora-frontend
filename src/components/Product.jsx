@@ -22,12 +22,13 @@ export default function Product() {
     }, [id]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEditedProduct((prevProduct) => ({
-            ...prevProduct,
-            [name]: value,
-        }));
-    };
+            const { name, value } = e.target;
+            setEditedProduct((prevProduct) => ({
+                ...prevProduct,
+                [name]: value,
+            }));
+        };
+
 
     const handleSubmit = async () => {
         try {
@@ -44,56 +45,63 @@ export default function Product() {
     };
 
     return (
-        <div>
-            {editedProduct ? (
-                <div className="grid grid-cols-1 gap-2" >
-                    <h1>Rediger {editedProduct.name}</h1>
-                    <input
-                        type="text"
-                        name="name"
-                        value={editedProduct.name}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="number"
-                        name="price"
-                        value={editedProduct.price}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="categories"
-                        value={editedProduct.categories}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="size"
-                        value={editedProduct.size}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="img"
-                        value={editedProduct.img}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="checkbox"
-                        name="reserved"
-                        checked={editedProduct.reserved}
-                        onChange={handleChange}
-                    />
-                    <textarea
-                        name="description"
-                        value={editedProduct.description}
-                        onChange={handleChange}
-                    ></textarea>
-                    <button onClick={handleSubmit}>Gem ændringer</button>
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
-        </div>
-    );
+    <div>
+        {editedProduct ? (
+            <div className="grid grid-cols-1 gap-2" >
+                <h1 className="text-3xl font-semibold mb-4">Rediger {editedProduct.name}</h1>
+                <input
+                    type="text"
+                    name="name"
+                    value={editedProduct.name}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                    type="number"
+                    name="price"
+                    value={editedProduct.price}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                    type="text"
+                    name="categories"
+                    value={editedProduct.categories}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                    type="text"
+                    name="size"
+                    value={editedProduct.size}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                    type="text"
+                    name="img"
+                    value={editedProduct.img}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                    type="checkbox"
+                    name="reserved"
+                    checked={editedProduct.reserved}
+                    onChange={handleChange}
+                    className="appearance-none border rounded w-4 h-4 border-gray-300 checked:bg-rose-200"
+                />
+                <textarea
+                    name="description"
+                    value={editedProduct.description}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                ></textarea>
+                <button onClick={handleSubmit} className="bg-cazora hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Gem ændringer</button>
+            </div>
+        ) : (
+            <p>Loading...</p>
+        )}
+    </div>
+)
 }
