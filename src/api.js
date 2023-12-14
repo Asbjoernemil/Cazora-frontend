@@ -1,5 +1,5 @@
 // api.js
-export const BASE_URL = 'http://localhost:3000'; // vores backend URL
+export const BASE_URL = 'https://cazoravintage.azurewebsites.net/'; // vores backend URL
 
 export const getCategories = async () => {
     const response = await fetch(`${BASE_URL}/categories`);
