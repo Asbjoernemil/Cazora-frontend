@@ -1,10 +1,11 @@
-import Products from "../components/Products";
+import AdminProducts from "../components/AdminProducts";
 
-export default function Admin(){
-    return(
+
+export default function Admin() {
+    return (
         <div>
-        Adminside motherfucker
-        <Products />
+
+            <AdminProducts />
 
         </div>
     )

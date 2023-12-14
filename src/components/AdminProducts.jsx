@@ -64,7 +64,7 @@ export default function AdminProducts() {
                 </button>
             </div>
 
-            {/* Visning for almindelige produkter */}
+            {/* Regular show */}
             {!showReserved && (
                 <div>
                     <div className="flex justify-end text-cazora p-1 w-full">
@@ -87,12 +87,11 @@ export default function AdminProducts() {
                 </div>
             )}
 
-            {/* Visning for reserverede produkter */}
+            {/* Show of reserved */}
             {showReserved && (
                 <div>
                     <div className="flex justify-center text-cazora p-1 w-full">
                         <p className="text-lg font-semibold text-cazora">Reserverede Produkter</p>
-                        {/* Du kan tilføje yderligere filterfunktioner her, hvis nødvendigt */}
                     </div>
                     <ul className='grid grid-cols-3 gap-10 flex justify-center text-center'>
                         {reservedProducts.map(reservedProduct => (
@@ -108,7 +107,6 @@ export default function AdminProducts() {
                     </ul>
                 </div>
             )}
-
         </div>
     );
 }

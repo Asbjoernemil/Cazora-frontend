@@ -20,15 +20,18 @@ export default function Filter({ onCategoryChange }) {
 
     const handleCategoryChange = async (categoryId) => {
         try {
+
             setSelectedCategory(categoryId);
 
-            if (categoryId) {
+            if (categoryId !== '') {
                 // Hvis en kategori er valgt, filtrer produkterne baseret på kategorien
                 const productsData = await getProductsInCategory(categoryId);
                 onCategoryChange(productsData);
+                console.log("Fetched products in category in Filter.jsx:", productsData);
             } else {
                 const allProductsData = await getProducts();
                 onCategoryChange(allProductsData);
+                console.log("Fetched all products in Filter.jsx:", allProductsData);
             }
         } catch (error) {
             console.error('Fejl ved filtrering af produkter: ', error);
@@ -36,9 +39,14 @@ export default function Filter({ onCategoryChange }) {
     };
 
     return (
-        <div>
-            <label htmlFor="category">Vælg kategori:</label>
-            <select id="category" value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+        <div className="flex items-center space-x-4">
+            <label htmlFor="category" className="text-lg font-semibold">Vælg kategori:</label>
+            <select
+                id="category"
+                value={selectedCategory}
+                onChange={(e) => handleCategoryChange(e.target.value)}
+                className="border p-2 rounded-md focus:outline-none focus:ring focus:border-teal-300"
+            >
                 <option value="">Alle kategorier</option>
                 {categories.map((category) => (
                     <option key={category.id} value={category.id}>

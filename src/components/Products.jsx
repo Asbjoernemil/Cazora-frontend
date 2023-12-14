@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { getProducts, getProductsInCategory } from '../api';
 import { Link } from 'react-router-dom';
 import Filter from './Filter';
+import ProductModal from './ProductModal';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
-    const [selectedCategory] = useState(null);
+    const [selectedCategory] = useState('');
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 let productsData;
 
-                if (selectedCategory) {
+                if (selectedCategory !== '') {
                     // Fetch products from category
                     productsData = await getProductsInCategory(selectedCategory);
+
                 } else {
                     // no cat --> fetch all
                     productsData = await getProducts();
@@ -33,26 +36,38 @@ export default function Products() {
         setProducts(productsData);
     };
 
+    const openModal = (product) => {
+        setSelectedProduct(product);
+    };
+
+    const closeModal = () => {
+        setSelectedProduct(null);
+    };
+
     return (
-        <div>
-            <div className="flex justify-end text-cazora p-1 w-full">
+        <div className="container mx-auto my-8">
+            <div className="flex justify-end mb-4">
                 <Filter onCategoryChange={handleCategoryChange} />
             </div>
 
-            <ul className='grid grid-cols-3 gap-10 flex justify-center text-center'>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {products.map(product => (
-                    <li className='bg-rose-200 rounded-md' key={product.id}>
-                        <img src={product.img} title={product.description} alt={product.name} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md" />
-                        <br />
-                        {product.name} - {product.price} DKK
-                        <br />
-                        <div className='m-3 p-2 flex justify-center'>
-                            <Link to={`/update/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent hover:shadow'>Redigér</Link>
-                            <Link to={`/delete/${product.id}`} className='object-contain m-3 p-2 w-20 rounded-md bg-cazora hover:transparent'>Slet</Link>
+                    <li key={product.id} className="rounded-md overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 cursor-pointer bg-rose-200">
+                        <div onClick={() => openModal(product)}>
+                            <img src={product.img} title={product.description} alt={product.name} className="object-contain h-64 w-full" />
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{product.name}</h3>
+                                <p className="text-lg text-purple-600 mb-2">{product.price} DKK</p>
+                                <p className="text-gray-600 mb-2">{product.description}</p>
+                            </div>
                         </div>
                     </li>
                 ))}
             </ul>
+
+            <ProductModal isOpen={!!selectedProduct} onClose={closeModal} productId={selectedProduct ? selectedProduct.id : null} />
         </div>
     );
+
+
 }
