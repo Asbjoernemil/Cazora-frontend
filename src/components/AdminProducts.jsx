@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts, getProductsInCategory, getReservations } from '../api';
+import { getOneParticularProduct, getProducts, getProductsInCategory, getReservations } from '../api';
 import { Link } from 'react-router-dom';
 import Filter from './Filter';
 
@@ -97,10 +97,11 @@ export default function AdminProducts() {
                         {reservedProducts.map(reservedProduct => (
                             <li className='bg-rose-200 rounded-md p-4' key={reservedProduct.id}>
                                 <img src={reservedProduct.product.img} title={reservedProduct.product.description} alt={reservedProduct.product.name} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md mb-4" />
-                                <p className="text-lg font-semibold mb-2">{`Reserved Product ${reservedProduct.id}`}</p>
+                                <p className="text-lg font-semibold mb-2">{`Reserved Product ${reservedProduct.product}`}</p>
                                 <p><strong>Contact Info:</strong> {reservedProduct.contactInfo}</p>
                                 <p><strong>Fitting Room:</strong> {reservedProduct.fittingRoom}</p>
                                 <p><strong>Pick Up Time:</strong> {reservedProduct.pickUpTime}</p>
+                                <p><strong>Pick Up Time:</strong> {reservedProduct.img}</p>
                             </li>
                         ))}
                     </ul>
