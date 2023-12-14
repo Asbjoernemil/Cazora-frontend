@@ -1,5 +1,9 @@
 // api.js
+<<<<<<< Updated upstream
 export const api = 'http://localhost:3000'; // vores backend URL
+=======
+export const BASE_URL = 'https://cazoravintage.azurewebsites.net'; // vores backend URL
+>>>>>>> Stashed changes
 
 export const getCategories = async () => {
     const response = await fetch(`${api}/categories`);
