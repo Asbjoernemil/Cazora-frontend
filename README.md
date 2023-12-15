@@ -1,8 +1,12 @@
-# React + Vite
+2README FOR CAZORA PROJECT BY ZAP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This frontend folder is part of a full stack CRUD web app made for showcasing cute vintage clothes for sale in Cazora Vintage on Nørrebro, Copenhagen.
 
-Currently, two official plugins are available:
+It is developed in React with a Node backend and Tailwind Framework for CSS *sparkles*
+A SQL database to back that up.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The API endpoint (for now) is https://cazoravintage.azurewebsites.net
+
+
+It fully belongs to ZAP - that's us - but feel free to fork and use away :0
+Copenhagen 2023

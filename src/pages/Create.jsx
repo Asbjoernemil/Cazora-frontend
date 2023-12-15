@@ -19,14 +19,12 @@ export default function Create() {
         console.log(values);
 
         try {
-            // Kald den nye createProduct-funktion
             const response = await createProduct(values);
-
-            // Håndter succes
+            // SUCCESS
             console.log(response);
             navigate('/admin');
         } catch (error) {
-            // Håndter fejl
+            // ERROR
             console.error(error);
         }
     };
