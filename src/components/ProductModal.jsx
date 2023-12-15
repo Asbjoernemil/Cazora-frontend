@@ -55,11 +55,7 @@ export default function ProductModal({ isOpen, onClose, productId }) {
                 <p className="text-lg mb-2">Categories: {product.categories}</p>
                 <img src={product.img} alt={product.name} className="object-contain h-64 w-full bg-purple-200 rounded-md" />
 
-<<<<<<< Updated upstream
-                {/* Reservation button and form */}
-=======
                 {/* Reserve btn and form */}
->>>>>>> Stashed changes
                 {!reservationSuccess && (
                     <div className="mt-4">
                         <div className="mb-2 p-2 w-full">
