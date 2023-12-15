@@ -1,4 +1,4 @@
-2README FOR CAZORA PROJECT BY ZAP
+README FOR FRONTEND OF CAZORA PROJECT BY ZAP
 
 This frontend folder is part of a full stack CRUD web app made for showcasing cute vintage clothes for sale in Cazora Vintage on Nørrebro, Copenhagen.
 
@@ -14,7 +14,7 @@ Copenhagen 2023
 
 Installation guide:
 Download folder, open project in VS Code, open terminal and run command 'npm install'.
-Then, run 'npm run build' and let it do its thing.
+Then, run 'npm run build' and let it do it's thing.
 Lastly, run 'npm run preview'.
 
 This will run the app on http://localhost:4173 (unless you have configured it otherwise with --port)
