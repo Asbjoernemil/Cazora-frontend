@@ -37,11 +37,16 @@ export default function DeleteProduct({ onCategoryChange }) {
     };
 
     return (
-        <div>
+        <div className="flex justify-center items-center h-screen">
             {productData ? (
-                <div className="grid grid-cols-1 gap-2">
-                    <h1>Er du sikker på, at du vil slette {productData.name}?</h1>
-                    <button onClick={handleDelete}>Slet produkt</button>
+                <div className="bg-white shadow-md rounded p-8 max-w-md w-full">
+                    <h1 className="text-2xl font-bold mb-4">Er du sikker på, at du vil slette {productData.name}?</h1>
+                    <button
+                        className="bg-red-500 hover:bg-red-600 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={handleDelete}
+                    >
+                        Slet produkt
+                    </button>
                 </div>
             ) : (
                 <p>Loading...</p>

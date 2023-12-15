@@ -55,6 +55,9 @@ export default function AdminProducts() {
     return (
         <div>
             <div className="flex justify-start items-center text-cazora p-1 w-full">
+                <Link to="/create" className="px-4 py-2 text-white bg-cazora rounded-md border border-cazora hover:bg-transparent hover:text-cazora hover:border-cazora transition-all duration-300">
+                    Opret nyt produkt
+                </Link>
                 <button
                     onClick={toggleShowReserved}
                     className="px-4 py-2 text-white bg-cazora rounded-md border border-cazora hover:bg-transparent hover:text-cazora hover:border-cazora transition-all duration-300"
