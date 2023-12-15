@@ -6,13 +6,23 @@ export default function Nav() {
   return (
     <div className="flex justify-between items-center p-5">
       <div className="w-full">
-        <NavLink to="/" className={"h-20"}><Logo /></NavLink>
+        <NavLink to="/" className="h-20">
+          <Logo />
+        </NavLink>
       </div>
-      <nav className="flex justify-end gap-5 m-5" >
-        <NavLink to="/gallery" className={"hover:text-teal-200"}>Gallery</NavLink>
-        <NavLink to="/contact" className={"hover:text-teal-200"}>Contact</NavLink>
-        <NavLink to="/about" className={"hover:text-teal-200"}>About</NavLink>
-        <NavLink to="/admin" className={"hover:text-teal-200"}>Admin</NavLink>
+      <nav className="flex justify-end gap-5 m-5">
+        <NavLink to="/gallery" id="gallery" className="hover:text-teal-200">
+          Gallery
+        </NavLink>
+        <NavLink to="/contact" id="contact" className="hover:text-teal-200">
+          Contact
+        </NavLink>
+        <NavLink to="/about" id="about" className="hover:text-teal-200">
+          About
+        </NavLink>
+        <NavLink to="/admin" id="admin" className="hover:text-teal-200">
+          Admin
+        </NavLink>
       </nav>
     </div>
   );
