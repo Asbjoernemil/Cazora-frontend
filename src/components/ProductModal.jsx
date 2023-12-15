@@ -4,9 +4,9 @@ import { reserveProduct } from './Reservation';
 
 export default function ProductModal({ isOpen, onClose, productId }) {
     const [product, setProduct] = useState(null);
-    const [fittingRoom, setFittingRoom] = useState(''); // Tilføjede fittingRoom-state
-    const [contactInfo, setContactInfo] = useState(''); // Tilføjede contactInfo-state
-    const [pickUpTime, setPickUpTime] = useState(''); // Tilføjede pickUpTime-state
+    const [fittingRoom, setFittingRoom] = useState('');
+    const [contactInfo, setContactInfo] = useState('');
+    const [pickUpTime, setPickUpTime] = useState('');
     const [reservationSuccess, setReservationSuccess] = useState(false);
 
     useEffect(() => {
@@ -31,9 +31,8 @@ export default function ProductModal({ isOpen, onClose, productId }) {
     }, [isOpen, productId]);
 
     const handleReserveClick = async () => {
-
         try {
-            await reserveProduct(productId, fittingRoom, contactInfo, pickUpTime);
+            await reserveProduct(fittingRoom, productId, contactInfo, pickUpTime);
             setReservationSuccess(true);
         } catch (error) {
             console.error('Fejl ved reservation: ', error);
@@ -56,7 +55,11 @@ export default function ProductModal({ isOpen, onClose, productId }) {
                 <p className="text-lg mb-2">Categories: {product.categories}</p>
                 <img src={product.img} alt={product.name} className="object-contain h-64 w-full bg-purple-200 rounded-md" />
 
+<<<<<<< Updated upstream
                 {/* Reservation button and form */}
+=======
+                {/* Reserve btn and form */}
+>>>>>>> Stashed changes
                 {!reservationSuccess && (
                     <div className="mt-4">
                         <div className="mb-2 p-2 w-full">

@@ -24,8 +24,6 @@ export default function AdminProducts() {
                     // no cat --> fetch all
                     productsData = await getProducts();
                 }
-
-                console.log(productsData);
                 setProducts(productsData);
             } catch (error) {
                 console.error('Fejl ved indlæsning af produkter: ', error);
@@ -64,7 +62,11 @@ export default function AdminProducts() {
                 </button>
             </div>
 
+<<<<<<< Updated upstream
             {/* Regular show */}
+=======
+            {/* Show products */}
+>>>>>>> Stashed changes
             {!showReserved && (
                 <div>
                     <div className="flex justify-end text-cazora p-1 w-full">
@@ -87,16 +89,28 @@ export default function AdminProducts() {
                 </div>
             )}
 
+<<<<<<< Updated upstream
             {/* Show of reserved */}
+=======
+            {/* Show reserved products */}
+>>>>>>> Stashed changes
             {showReserved && (
                 <div>
                     <div className="flex justify-center text-cazora p-1 w-full">
                         <p className="text-lg font-semibold text-cazora">Reserverede Produkter</p>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                     </div>
                     <ul className='grid grid-cols-3 gap-10 flex justify-center text-center'>
                         {reservedProducts.map(reservedProduct => (
                             <li className='bg-rose-200 rounded-md p-4' key={reservedProduct.id}>
+<<<<<<< Updated upstream
                                 <img src={reservedProduct.product.img} title={reservedProduct.product.description} alt={reservedProduct.product.name} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md mb-4" />
+=======
+                                <img src={reservedProduct.product.img} title={reservedProduct.product.description} alt={reservedProduct.product} className="object-scale-down h-64 w-96 bg-purple-200 rounded-t-md mb-4" />
+>>>>>>> Stashed changes
                                 <p className="text-lg font-semibold mb-2">{`Reserved Product ${reservedProduct.product}`}</p>
                                 <p><strong>Contact Info:</strong> {reservedProduct.contactInfo}</p>
                                 <p><strong>Fitting Room:</strong> {reservedProduct.fittingRoom}</p>
