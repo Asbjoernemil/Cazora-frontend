@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCategories, getProducts, getProductsInCategory } from '../api'; // Opdater dette med de faktiske API-funktioner
+import { getCategories, getProducts, getProductsInCategory } from '../api';
 
 export default function Filter({ onCategoryChange }) {
     const [categories, setCategories] = useState([]);
@@ -24,15 +24,17 @@ export default function Filter({ onCategoryChange }) {
             setSelectedCategory(categoryId);
 
             if (categoryId !== '') {
-                // Hvis en kategori er valgt, filtrer produkterne baseret på kategorien
+                //Filter products by categories
                 const productsData = await getProductsInCategory(categoryId);
                 onCategoryChange(productsData);
                 console.log("Fetched products in category in Filter.jsx:", productsData);
+
             } else {
                 const allProductsData = await getProducts();
                 onCategoryChange(allProductsData);
                 console.log("Fetched all products in Filter.jsx:", allProductsData);
             }
+
         } catch (error) {
             console.error('Fejl ved filtrering af produkter: ', error);
         }

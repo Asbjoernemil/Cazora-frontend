@@ -1,5 +1,7 @@
 // api.js
-export const BASE_URL = 'https://cazoravintage.azurewebsites.net'; // vores backend URL
+export const BASE_URL = 'https://cazoravintage.azurewebsites.net'; // URL
+
+
 
 
 export const getCategories = async () => {
@@ -8,7 +10,7 @@ export const getCategories = async () => {
     return data;
 };
 
-// api/products.js
+
 export const getProducts = async () => {
     try {
         const response = await fetch(`${BASE_URL}/products`);
@@ -16,9 +18,10 @@ export const getProducts = async () => {
         return data;
     } catch (error) {
         console.error('Fejl ved indlæsning af produkter: ', error);
-        throw error; // kast fejlen videre for at lade komponenten håndtere den
+        throw error;
     }
 };
+
 
 export const getOneParticularProduct = async (id) => {
     try {
@@ -31,7 +34,7 @@ export const getOneParticularProduct = async (id) => {
     }
 };
 
-// 
+
 export const updateProduct = async (id, updatedProduct) => {
     try {
         const response = await fetch(`${BASE_URL}/products/${id}`, {
@@ -44,7 +47,7 @@ export const updateProduct = async (id, updatedProduct) => {
 
         if (response.ok) {
             const data = await response.json();
-            return data; // Returnerer data efter opdatering
+            return data;
         } else {
             throw new Error('Fejl ved opdatering af produkt.');
         }
@@ -54,7 +57,6 @@ export const updateProduct = async (id, updatedProduct) => {
     }
 };
 
-// api/products.js
 
 export const deleteProduct = async (id) => {
     try {
@@ -67,7 +69,7 @@ export const deleteProduct = async (id) => {
 
         if (response.ok) {
             const data = await response.json();
-            return data; // Returnerer data efter sletning
+            return data;
         } else {
             throw new Error('Fejl ved sletning af produkt.');
         }
@@ -76,6 +78,7 @@ export const deleteProduct = async (id) => {
         throw error;
     }
 };
+
 
 export const getProductsInCategory = async (categoryId) => {
     try {
@@ -87,6 +90,7 @@ export const getProductsInCategory = async (categoryId) => {
         throw error;
     }
 };
+
 
 export const createProduct = async (productData) => {
     try {
@@ -100,7 +104,7 @@ export const createProduct = async (productData) => {
 
         if (response.ok) {
             const data = await response.json();
-            return data; // Returnerer data efter oprettelse
+            return data;
         } else {
             throw new Error('Fejl ved oprettelse af produkt.');
         }
@@ -110,7 +114,9 @@ export const createProduct = async (productData) => {
     }
 };
 
+
 export const createReservation = async (reservationData) => {
+    console.log(reservationData);
     try {
         const response = await fetch(`${BASE_URL}/reservations`, {
             method: 'POST',
@@ -122,6 +128,7 @@ export const createReservation = async (reservationData) => {
 
         if (response.ok) {
             const result = await response.json();
+            console.log(result, "+1");
             return result
         }
         throw new Error('Fejl ved oprettelse af reservation.');
@@ -131,6 +138,7 @@ export const createReservation = async (reservationData) => {
         throw error;
     }
 };
+
 
 export const getReservations = async () => {
     try {

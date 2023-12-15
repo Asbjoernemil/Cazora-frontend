@@ -1,17 +1,18 @@
 // Reservation.jsx
 import { createReservation } from '../api';
 
-export const reserveProduct = async (productId, fittingRoom, contactInfo, pickUpTime) => {
+export const reserveProduct = async (fittingRoom, productId, contactInfo, pickUpTime) => {
     try {
 
         const reservationData = {
-            productId,
             fittingRoom,
+            productId,
             contactInfo,
-            pickUpTime,
+            pickUpTime
         };
 
         const result = await createReservation(reservationData);
+        console.log(reservationData);
         return result;
     } catch (error) {
         console.error('Fejl ved reservation: ', error);
